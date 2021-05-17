@@ -1,6 +1,6 @@
 {
   "name": "books-tracker",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Track rental books.",
   "main": "src/index.tsx",
   "scripts": {
@@ -8,8 +8,8 @@
     "build": "webpack --config ./configs/webpack.prod.config.ts",
     "lint": "eslint */**/*.{ts,tsx} --quiet --fix "
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["books", "tracker", "front-end"],
+  "author": "Cristutz",
   "license": "ISC",
   "devDependencies": {
     "@types/mini-css-extract-plugin": "^1.4.3",
