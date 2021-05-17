@@ -1,0 +1,5 @@
+node_modules
+__dist__
+
+// mac
+.DS_Store
