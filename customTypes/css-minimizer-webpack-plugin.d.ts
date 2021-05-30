@@ -1,1 +1,4 @@
-declare module 'css-minimizer-webpack-plugin';
+declare module "css-minimizer-webpack-plugin" {
+  const contentBase: any;
+  export default contentBase;
+}
