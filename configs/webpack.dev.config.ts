@@ -1,11 +1,10 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import { Configuration, SourceMapDevToolPlugin } from 'webpack';
+import { Configuration } from 'webpack';
 import { merge } from 'webpack-merge';
 import { resolve } from 'path';
 
 import { common } from './webpack.common.config';
 
-const devOptions: any = {
+const devOptions = {
   devServer: {
     contentBase: false,
     compress: false,
@@ -16,14 +15,7 @@ const devOptions: any = {
 
 const config: Configuration = merge<Configuration>(common, {
   mode: 'development',
-  devtool: false,
-  plugins: [
-    new SourceMapDevToolPlugin({
-      test: /\.(js|jsx)$/,
-      filename: '[name].js.map',
-      exclude: /node_modules/,
-    }),
-  ],
+  devtool: 'inline-source-map',
   module: {
     rules: [
       {
@@ -37,7 +29,7 @@ const config: Configuration = merge<Configuration>(common, {
       '@App': resolve(__dirname, '../src/app'),
       '@Components': resolve(__dirname, '../src/components'),
     },
-    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    extensions: ['.ts', '.tsx', '.js'],
   },
   ...devOptions,
 });

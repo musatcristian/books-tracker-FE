@@ -6,9 +6,13 @@
   "scripts": {
     "dev": "webpack serve --config ./configs/webpack.dev.config.ts --open",
     "build": "webpack --config ./configs/webpack.prod.config.ts",
-    "lint": "eslint */**/*.{ts,tsx} --quiet --fix "
+    "lint": "eslint --fix 'src/**/*.{ts,tsx}' "
   },
-  "keywords": ["books", "tracker", "front-end"],
+  "keywords": [
+    "books",
+    "tracker",
+    "front-end"
+  ],
   "author": "Cristutz",
   "license": "ISC",
   "devDependencies": {
