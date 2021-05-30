@@ -1,6 +1,5 @@
 import { Configuration } from 'webpack';
 import { merge } from 'webpack-merge';
-// import { resolve } from 'path';
 
 import { common } from './webpack.common.config';
 
