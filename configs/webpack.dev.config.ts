@@ -1,6 +1,6 @@
 import { Configuration } from 'webpack';
 import { merge } from 'webpack-merge';
-import { resolve } from 'path';
+// import { resolve } from 'path';
 
 import { common } from './webpack.common.config';
 
@@ -23,13 +23,6 @@ const config: Configuration = merge<Configuration>(common, {
         use: ['style-loader', 'css-loader'],
       },
     ],
-  },
-  resolve: {
-    alias: {
-      '@App': resolve(__dirname, '../src/app'),
-      '@Components': resolve(__dirname, '../src/components'),
-    },
-    extensions: ['.ts', '.tsx', '.js'],
   },
   ...devOptions,
 });

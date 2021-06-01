@@ -20,4 +20,11 @@ export const common: Configuration = {
       template: resolve(__dirname, '../static/templates/index.html'),
     }),
   ],
+  resolve: {
+    alias: {
+      '@App': resolve(__dirname, '../src/app'),
+      '@Components': resolve(__dirname, '../src/components'),
+    },
+    extensions: ['.ts', '.tsx', '.js'],
+  },
 };
