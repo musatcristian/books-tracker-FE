@@ -1,0 +1,15 @@
+name: Deploy to github pages
+
+on:
+  push:
+    branches:
+      main
+
+jobs:
+  publish_github_pages:
+    runs-on: ubuntu-latest
+    run: |
+      git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/musatcristian/books-tracker-FE.git
+      npx gh-pages -d build -u "github-actions-bot <support+actions@github.com>"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
