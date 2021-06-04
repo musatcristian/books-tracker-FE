@@ -2,7 +2,7 @@ name: Deploy to github pages
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   deploy:
@@ -10,8 +10,8 @@ jobs:
     steps:
       - name: Publish to Github Pages
         run: |
-          git config user.email ${{secrets.EMAIL}}
-          git config user.name ${{secrets.USERNAME}}
+          # git config user.email ${{secrets.EMAIL}}
+          # git config user.name ${{secrets.USERNAME}}
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${{secrets.USERNAME}}/books-tracker-FE.git
           npm run deploy -- -u "github-actions-bot <support+actions@github.com>"
         env:
