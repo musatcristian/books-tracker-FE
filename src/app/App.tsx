@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import { Navbar } from "@Components/navbar";
+import { Navbar } from '@Components/navbar';
 
 export const App: React.FunctionComponent = () => (
   <main>
