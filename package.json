@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "webpack serve --config ./configs/webpack.dev.config.ts --open",
     "build": "webpack --config ./configs/webpack.prod.config.ts",
-    "lint": "eslint --fix 'src/**/*.{ts,tsx}' "
+    "lint": "eslint --fix 'src/**/*.{ts,tsx}' ",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "keywords": [
     "books",
