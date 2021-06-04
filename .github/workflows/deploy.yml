@@ -10,7 +10,9 @@ jobs:
     steps:
       - name: Publish to Github Pages
         run: |
-          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/musatcristian/books-tracker-FE.git
-          npm run deploy -u "github-actions-bot <support+actions@github.com>"
+          git config user.email ${{secrets.EMAIL}}
+          git config user.name ${{secrets.USERNAME}}
+          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${{secrets.USERNAME}}/books-tracker-FE.git
+          npm run deploy -- -u "github-actions-bot <support+actions@github.com>"
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.RELEASE_GITHUB_TOKEN }}
