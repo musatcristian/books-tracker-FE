@@ -33,12 +33,13 @@ const config: Configuration = merge<Configuration>(common, {
   module: {
     rules: [
       {
-        test: /\.s?css$/,
+        test: /\.scss$/,
         use: [
           {
             loader: cssLoader,
           },
           'css-loader',
+          'sass-loader',
         ],
       },
     ],

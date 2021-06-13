@@ -1,0 +1,6 @@
+@use "./styles-global" as global;
+
+body {
+  background-color: map-get(global.$colors, "primary");
+  color:  map-get(global.$colors, "secondary");
+}
