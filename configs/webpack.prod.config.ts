@@ -39,6 +39,7 @@ const config: Configuration = merge<Configuration>(common, {
             loader: cssLoader,
           },
           'css-loader',
+          'sass-loader',
         ],
       },
     ],
