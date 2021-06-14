@@ -6,9 +6,7 @@
   "scripts": {
     "dev": "webpack serve --config ./configs/webpack.dev.config.ts --open",
     "build": "webpack --config ./configs/webpack.prod.config.ts",
-    "lint": "eslint --fix 'src/**/*.{ts,tsx}' ",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "lint": "eslint --fix 'src/**/*.{ts,tsx}' "
   },
   "keywords": [
     "books",
@@ -38,7 +36,6 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "gh-pages": "^3.2.0",
     "html-webpack-plugin": "^5.3.1",
     "mini-css-extract-plugin": "^1.6.0",
     "prettier": "^2.3.0",
