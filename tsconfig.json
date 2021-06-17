@@ -69,7 +69,8 @@
     "forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file. */,
     "paths": {
       "@App": ["src/app/"],
-      "@Components/*": ["src/components/*"]
+      "@Components/*": ["src/components/*"],
+      "@Theming/*": ["src/material/*"]
     },
     "typeRoots": ["customTypes", "node_modules/@types"]
   },

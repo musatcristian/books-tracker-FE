@@ -24,6 +24,7 @@ export const common: Configuration = {
     alias: {
       '@App': resolve(__dirname, '../src/app'),
       '@Components': resolve(__dirname, '../src/components'),
+      '@Theming': resolve(__dirname, '../src/material'),
     },
     extensions: ['.ts', '.tsx', '.js'],
   },
