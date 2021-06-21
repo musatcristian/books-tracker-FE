@@ -18,6 +18,9 @@ export const common: Configuration = {
   plugins: [
     new HtmlWebpackPlugin({
       template: resolve(__dirname, '../static/templates/index.html'),
+      title: 'Books tracker',
+      scriptLoading: 'defer',
+      favicon: resolve(__dirname, '../static/images/favicon.ico'),
     }),
   ],
   resolve: {

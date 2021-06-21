@@ -8,7 +8,7 @@ import MiniCssExtractPlugin, { loader as cssLoader } from 'mini-css-extract-plug
 
 import { common } from './webpack.common.config';
 
-const config: Configuration = merge<Configuration>(common, {
+const prodConfig = {
   mode: 'production',
   output: {
     path: resolve(__dirname, '../__dist__'),
@@ -43,6 +43,6 @@ const config: Configuration = merge<Configuration>(common, {
       },
     ],
   },
-});
+} as Configuration;
 
-export default config;
+export default merge(common, prodConfig);
