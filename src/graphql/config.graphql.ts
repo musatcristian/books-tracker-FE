@@ -1,5 +1,5 @@
 import { ApolloClient, InMemoryCache } from '@apollo/client';
-import { GRAPHQL_CONSTANTS } from './constants';
+import { GRAPHQL_CONSTANTS } from './constants.graphql';
 
 export const client = new ApolloClient({
   uri: GRAPHQL_CONSTANTS.URI,

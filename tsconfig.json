@@ -70,7 +70,9 @@
     "paths": {
       "@App": ["src/app/"],
       "@Components/*": ["src/components/*"],
-      "@Theming/*": ["src/material/*"]
+      "@Theming/*": ["src/material/*"],
+      "@GraphQL/*": ["src/graphql/*"],
+      "@Contexts/*": ["src/contexts/*"]
     },
     "typeRoots": ["customTypes", "node_modules/@types"]
   },

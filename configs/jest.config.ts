@@ -12,6 +12,8 @@ const config: Config.InitialOptions = {
     '^@App': '<rootDir>/src/app/App.tsx',
     '^@Components/(.*)$': '<rootDir>/src/components/$1',
     '^@Theming/(.*)$': '<rootDir>/src/material/$1',
+    '^@GraphQL/(.*)$': '<rootDir>/src/graphql/$1',
+    '^@Contexts/(.*)$': '<rootDir>/src/contexts/$1',
   },
   prettierPath: '<rootDir>/node_modules/prettier',
   rootDir: '../',
