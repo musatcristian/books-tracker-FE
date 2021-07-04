@@ -2,17 +2,26 @@ import React from 'react';
 import { CssBaseline } from '@material-ui/core';
 
 import { Theming } from '@Theming/provider.theme';
+import { DataProvider } from '@GraphQL/provider.graphql';
 
 import { Navbar } from '@Components/navbar';
+import { BooksProvider } from '@Contexts/index';
+import { UserProvider } from '@Contexts/user.context';
 
 export const App: React.FunctionComponent = () => {
   return (
-    <Theming>
-      <CssBaseline />
-      <main>
-        <Navbar />
-        Main content
-      </main>
-    </Theming>
+    <DataProvider>
+      <UserProvider>
+        <BooksProvider>
+          <Theming>
+            <CssBaseline />
+            <main>
+              <Navbar />
+              Main content
+            </main>
+          </Theming>
+        </BooksProvider>
+      </UserProvider>
+    </DataProvider>
   );
 };

@@ -28,6 +28,8 @@ export const common: Configuration = {
       '@App': resolve(__dirname, '../src/app'),
       '@Components': resolve(__dirname, '../src/components'),
       '@Theming': resolve(__dirname, '../src/material'),
+      '@GraphQL': resolve(__dirname, '../src/graphql'),
+      '@Contexts': resolve(__dirname, '../src/contexts'),
     },
     extensions: ['.ts', '.tsx', '.js'],
   },
