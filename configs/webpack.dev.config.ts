@@ -1,6 +1,5 @@
 import { Configuration } from 'webpack';
 import { merge } from 'webpack-merge';
-// import { resolve } from 'path';
 
 import { common } from './webpack.common.config';
 
@@ -13,7 +12,7 @@ const devOptions = {
   },
 };
 
-const config: Configuration = merge<Configuration>(common, {
+const devConfig = {
   mode: 'development',
   devtool: 'inline-source-map',
   module: {
@@ -25,6 +24,6 @@ const config: Configuration = merge<Configuration>(common, {
     ],
   },
   ...devOptions,
-});
+} as Configuration;
 
-export default config;
+export default merge(common, devConfig);

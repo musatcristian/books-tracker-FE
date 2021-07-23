@@ -6,4 +6,4 @@
 
 ## Links
 
-[link with title](https://trello.com/b/PzF5zGyQ/dev-board "trello board")
+[FE Trello board](https://trello.com/b/PzF5zGyQ/dev-board "trello board")

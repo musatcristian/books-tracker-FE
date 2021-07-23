@@ -18,12 +18,18 @@ export const common: Configuration = {
   plugins: [
     new HtmlWebpackPlugin({
       template: resolve(__dirname, '../static/templates/index.html'),
+      title: 'Books tracker',
+      scriptLoading: 'defer',
+      favicon: resolve(__dirname, '../static/images/favicon.ico'),
     }),
   ],
   resolve: {
     alias: {
       '@App': resolve(__dirname, '../src/app'),
       '@Components': resolve(__dirname, '../src/components'),
+      '@Theming': resolve(__dirname, '../src/material'),
+      '@GraphQL': resolve(__dirname, '../src/graphql'),
+      '@Contexts': resolve(__dirname, '../src/contexts'),
     },
     extensions: ['.ts', '.tsx', '.js'],
   },
