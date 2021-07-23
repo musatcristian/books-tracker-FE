@@ -1,0 +1,37 @@
+name: Deploy to gh-pages
+
+on:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  deploy_build_FE:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Clean Install and Buils
+        uses: actions/setup-node@v1
+          with:
+            node-version: 14
+        run: npm ci
+        run: npm run build
+
+      - name: Commit and Push
+        # Keep the run green if the commit fails for the lack of changes
+        continue-on-error: True
+        run: |
+          git config user.email "${{ secrets.EMAIL }}"
+          git config user.name "${{ secrets.USERNAME }}"
+          git checkout release-branch
+          cd __dist__/
+          git add .
+          git commit -m "Deploy Production Code for Commit ${{ github.sha }} 🚀"
+          git push
