@@ -17,7 +17,7 @@ export const App: React.FunctionComponent = () => {
             <CssBaseline />
             <main>
               <Navbar />
-              Main content
+              App version 0.1.0
             </main>
           </Theming>
         </BooksProvider>

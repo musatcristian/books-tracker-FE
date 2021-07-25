@@ -1,7 +1,7 @@
 {
   "name": "books-tracker",
   "homepage": "https://musatcristian.github.io/books-tracker-FE",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Track rental books.",
   "main": "src/index.tsx",
   "scripts": {
