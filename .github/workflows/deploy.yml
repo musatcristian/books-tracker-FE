@@ -17,21 +17,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Clean Install and Buils
+      - name: Clean Install and Build
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node }}
       - run: npm ci
       - run: npm run build
 
-      - name: Commit and Push
-        # Keep the run green if the commit fails for the lack of changes
-        continue-on-error: True
-        run: |
-          git config user.email "${{ secrets.EMAIL }}"
-          git config user.name "${{ secrets.USERNAME }}"
-          git checkout release-branch
-          cd __dist__/
-          git add .
-          git commit -m "Deploy Production Code for Commit ${{ github.sha }} 🚀"
-          git push
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: build # The folder the action should deploy.
