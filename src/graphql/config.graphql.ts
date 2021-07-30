@@ -4,7 +4,7 @@ import { onError } from '@apollo/client/link/error';
 
 const httpOptions: HttpOptions = {
   uri: GRAPHQL_CONSTANTS.URI,
-  credentials: 'same-origin',
+  credentials: 'include',
   headers: {
     special: '',
   },
