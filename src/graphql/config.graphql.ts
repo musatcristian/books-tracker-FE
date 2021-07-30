@@ -1,9 +1,10 @@
+/* eslint-disable no-console */
 import { ApolloClient, InMemoryCache, HttpLink, HttpOptions, from } from '@apollo/client';
-import { GRAPHQL_CONSTANTS } from './constants.graphql';
+import { API_URI } from './constants.graphql';
 import { onError } from '@apollo/client/link/error';
 
 const httpOptions: HttpOptions = {
-  uri: GRAPHQL_CONSTANTS.URI,
+  uri: API_URI,
   credentials: 'include',
   headers: {
     special: '',

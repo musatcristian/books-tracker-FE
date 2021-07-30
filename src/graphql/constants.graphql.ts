@@ -1,4 +1,7 @@
-export const enum GRAPHQL_CONSTANTS {
-  URI = 'http://localhost:4001/',
-  // URI = 'https://bookstracker.herokuapp.com/',
+const enum GRAPHQL_CONSTANTS {
+  localURI = 'http://localhost:4001/',
+  herokuURI = 'https://bookstracker.herokuapp.com/',
 }
+
+export const API_URI =
+  process.env.NODE_ENV === 'development' ? GRAPHQL_CONSTANTS.localURI : GRAPHQL_CONSTANTS.herokuURI;
