@@ -1,6 +1,7 @@
 import { Configuration } from 'webpack';
 import { resolve } from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import WorkboxPlugin from 'workbox-webpack-plugin';
 
 export const common: Configuration = {
   context: resolve(__dirname, '../src'),
@@ -21,6 +22,12 @@ export const common: Configuration = {
       title: 'Books tracker',
       scriptLoading: 'defer',
       favicon: resolve(__dirname, '../static/images/favicon.ico'),
+    }),
+    new WorkboxPlugin.InjectManifest({
+      swSrc: resolve(__dirname, '../src/service-worker.ts'),
+      swDest: 'service-worker.js',
+      exclude: [/service-worker\.ts$/],
+      maximumFileSizeToCacheInBytes: 10000000,
     }),
   ],
   resolve: {

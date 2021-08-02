@@ -21,7 +21,7 @@ export const DELETE_MANY_USERS = gql`
   }
 `;
 
-export const useAddUserMutation = (name: string): MutationTuple<any, any> => {
+export const useAddUserMutation = (name: string): MutationTuple<any, any, any, any> => {
   return useMutation(ADD_USER, {
     variables: {
       name: name,

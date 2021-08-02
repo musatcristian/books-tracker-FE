@@ -12,7 +12,7 @@ const httpOptions: HttpOptions = {
 };
 
 const errorLink = onError((error) => {
-  console.log(error);
+  throw new Error(JSON.stringify(error));
 });
 
 const httpLink = new HttpLink(httpOptions);
