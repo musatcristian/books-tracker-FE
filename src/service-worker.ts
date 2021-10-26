@@ -1,6 +1,8 @@
+/* eslint-disable no-var */
+declare var self: ServiceWorkerGlobalScope;
 import { ExpirationPlugin } from 'workbox-expiration';
 import { registerRoute } from 'workbox-routing';
-import { StaleWhileRevalidate } from 'workbox-strategies';
+import { NetworkFirst } from 'workbox-strategies';
 import { clientsClaim } from 'workbox-core';
 import { precacheAndRoute } from 'workbox-precaching';
 
@@ -12,21 +14,48 @@ self.skipWaiting();
 // @ts-ignore: __WB_MANIFEST is a placeholder filled by workbox-webpack-plugin with the list of dependecies to be cached
 precacheAndRoute(self.__WB_MANIFEST);
 
-// Cache Google Fonts with a stale-while-revalidate strategy, with
-// a maximum number of entries.
 registerRoute(
-  (obj) => {
-    return obj.url.origin === 'https://fonts.googleapis.com' || obj.url.origin === 'https://fonts.gstatic.com';
+  (req) => {
+    return req.url.pathname.endsWith('.ico');
   },
-  new StaleWhileRevalidate({
-    cacheName: 'google-fonts',
-    plugins: [new ExpirationPlugin({ maxEntries: 20 })],
+  new NetworkFirst({
+    cacheName: 'assets',
+    plugins: [
+      new ExpirationPlugin({
+        maxEntries: 5,
+        maxAgeSeconds: 3600,
+      }),
+    ],
   })
+  // new CacheFirst({
+  //   cacheName: 'assets',
+  //   plugins: [
+  //     new ExpirationPlugin({
+  //       maxEntries: 5,
+  //       maxAgeSeconds: 3600,
+  //     }),
+  //   ],
+  // })
 );
 
-registerRoute(
-  ({ url }) => url.origin === self.location.origin && url.pathname.startsWith('/static/'),
-  new StaleWhileRevalidate({
-    cacheName: 'static',
-  })
-);
+function getEndpoint() {
+  return self.registration.pushManager.getSubscription().then(function (subscription) {
+    if (subscription) {
+      return subscription;
+    }
+
+    throw new Error('User not subscribed');
+  });
+}
+
+self.addEventListener('push', (event) => {
+  event.waitUntil(
+    getEndpoint().then(() => {
+      self.registration.showNotification('Notification Title', {
+        data: event.data?.text(),
+        body: event.data?.text(),
+        requireInteraction: true,
+      });
+    })
+  );
+});

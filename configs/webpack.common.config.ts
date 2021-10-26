@@ -28,6 +28,7 @@ export const common: Configuration = {
       swDest: 'service-worker.js',
       exclude: [/service-worker\.ts$/],
       maximumFileSizeToCacheInBytes: 10000000,
+      include: [/.js/, /.html/, /.css/, /.ico/],
     }),
   ],
   resolve: {
