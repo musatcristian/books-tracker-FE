@@ -1,6 +1,12 @@
 import React from 'react';
-import ReactDom from 'react-dom';
+import { render } from 'react-dom';
 
 import { App } from '@App';
 
-ReactDom.render(<App />, document.getElementById('react-root'));
+render(<App />, document.getElementById('react-root'));
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('DOMContentLoaded', () => {
+    navigator.serviceWorker.register('/service-worker.js');
+  });
+}
