@@ -4,7 +4,7 @@ import type { Config } from '@jest/types';
 const config: Config.InitialOptions = {
   bail: 1,
   collectCoverage: true,
-  collectCoverageFrom: ['../src/*'],
+  collectCoverageFrom: ['<rootDir>/src/*'],
   coverageDirectory: '<rootDir>/__coverage__',
   displayName: 'CLIENT',
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
